@@ -5,8 +5,8 @@ classdef Mesh2D < handle
         hx
         hy
 
-        HX
-        HY
+        Hx
+        Hy
 
         X
         Y
@@ -44,7 +44,7 @@ classdef Mesh2D < handle
             obj.hx=diff(x);
             obj.hy=diff(y);
 
-            [obj.HX,obj.HY]=ndgrid(obj.hx,obj.hy);
+            [obj.Hx,obj.Hy]=ndgrid(obj.hx,obj.hy);
 
             nvx=length(x);
             nvy=length(y);

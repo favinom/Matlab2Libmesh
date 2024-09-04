@@ -26,5 +26,9 @@ for i=2:length(l)
     xx=[xx x{i}(2:end)];
 end
 
-m=Mesh2D(xx,xx);
+yy=xx;
+[~,i]=min(abs(yy-0.7));
+yy(i)=0.7;
+
+m=Mesh2D(xx,yy);
 m.writeToFile('ciao.xda','1.3.0');
