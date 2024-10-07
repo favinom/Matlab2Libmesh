@@ -12,11 +12,11 @@ x2=linspace(xc-eps/2,xc+eps/2,nf+1);
 x3=linspace(xc+eps/2,1,nex+1);
 x=[x1 x2(2:end) x3(2:end)];
 y=linspace(0,1,ney+1);
-m=Mesh2D(x,y);
+m=Grid(x,y);
 
-m.elem_flag(:,:)=1;
-[wi,wj]=find(xc-eps/2<m.Xc & m.Xc<xc+eps/2);
-m.elem_flag(wi,wj)=2;
+m.elemflag(:,:)=1;
+[w]=find(xc-eps/2<m.Xc & m.Xc<xc+eps/2);
+m.elemflag(w)=2;
 
 X=m.X;
 Y=m.Y;
@@ -42,9 +42,7 @@ end
 
 m.X=X;
 
-m.c=[m.X(:) m.Y(:)];
+exportMeshToVTK('ellipse.vtk',m);
+appendSolutionToVtkFile('ellipse.vtk','ellipse.vtk',m.elemflag,'elemflag','CELL');
 
-%plot(m.X,m.Y,'.')
-%axis equal
-
-m.writeToFile('ciao.xda');
+exportMeshToXDA('ellipse.xda', m, '1.8.0')
