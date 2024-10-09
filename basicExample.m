@@ -1,13 +1,27 @@
 clear all
 close all
 
-x=linspace(0,1,4);
-m=Grid(x,x);
+% define a 1D set of coordinates
+x=linspace(0,1,41);
+% define a tensor grid
+g=TensorGrid2D(x,x);
 
-m.elemflag(:,:)=2;
-[w]=find(m.Xc<0.6);
-m.elemflag(w)=4;
+[x,y]=g.coo;
+conn=g.conn;
+m=Mesh(x,y,[],conn);
+
+[xc,yc]=m.centers;
+
+w=find(0.25 < xc & xc <0.75 & yc>0.5);
+m.i_elemflag(w)=2;
+
+
+[x,y]=m.coo;
+z=y.^2;
+m.i_Z=z;
+
+
 
 exportMeshToVTK('basicExample.vtk',m);
 appendSolutionToVtkFile('basicExample.vtk','basicExample.vtk',m.elemflag,'elemflag','CELL');
-exportMeshToXDA('basicExample.xda', m, '1.8.0')
+exportMeshToXDA('basicExample.xda', g, '1.8.0')

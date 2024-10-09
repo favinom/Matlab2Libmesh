@@ -33,7 +33,6 @@ fprintf(fid, 'Mesh\n');
 fprintf(fid, 'ASCII\n');
 fprintf(fid, 'DATASET UNSTRUCTURED_GRID\n');
 
-
 % coordinates PART 2
 fprintf(fid, 'POINTS %d float\n', nv);
 fprintf(fid, '%f %f %f\n', coo);
@@ -45,7 +44,9 @@ for i=1:vert_per_elem
     line=[line,' %d'];
 end
 line=[line,'\n'];
+
 fprintf(fid,line, conn);
+
 
 % cell type PART 4
 fprintf(fid, 'CELL_TYPES %d\n', ne);
