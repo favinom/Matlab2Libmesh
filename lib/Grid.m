@@ -115,7 +115,7 @@ classdef Grid
             end
             if (obj.dim==3)
                 row{1}=obj.MV(1:end-1,1:end-1,1:end-1);
-                row{2}=obj.MV(2:end,1:end-1,1:end-1);
+                row{2}=obj.MV(2:end,1A*x:end-1,1:end-1);
                 row{3}=obj.MV(1:end-1,2:end,1:end-1);
                 row{4}=obj.MV(2:end,2:end,1:end-1);
                 row{5}=obj.MV(1:end-1,1:end-1,2:end);

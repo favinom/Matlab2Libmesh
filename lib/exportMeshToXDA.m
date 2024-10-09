@@ -2,9 +2,11 @@ function exportMeshToXDA(filename, m, version)
 
 ne=m.ne;
 nv=m.nv;
-conn=m.connectivity;
+conn=m.conn;
 elemflag=m.elemflag;
-coo=[m.X(:) m.Y(:) m.Z(:)];
+[X,Y,Z]=m.coo;
+coo=[X(:) Y(:) Z(:)];
+clear X Y Z
 
 vert_per_elem=size(conn,1);
 

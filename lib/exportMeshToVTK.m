@@ -1,8 +1,9 @@
 function exportMeshToVTK(filename, m)
 
 dim=m.dim;
-coo=[m.X(:) m.Y(:) m.Z(:)]';
-conn=m.connectivity-1;
+[X,Y,Z]=m.coo;
+coo=[X(:) Y(:) Z(:)]';
+conn=m.conn-1;
 ne=m.ne;
 nv=m.nv;
 vert_per_elem=size(conn,1);
