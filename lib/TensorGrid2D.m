@@ -2,10 +2,12 @@ classdef TensorGrid2D < MeshBase
     properties
         i_x
         i_y
+        i_isTensorGrid
     end
     methods
         % constructor
         function obj=TensorGrid2D(x,y)
+            obj.i_isTensorGrid=1;
             obj.i_dim=2;
             obj.i_x=x;
             obj.i_y=y;
