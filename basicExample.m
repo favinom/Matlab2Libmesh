@@ -20,8 +20,6 @@ m.i_elemflag(w)=2;
 z=y.^2;
 m.i_Z=z;
 
-
-
 exportMeshToVTK('basicExample.vtk',m);
 appendSolutionToVtkFile('basicExample.vtk','basicExample.vtk',m.elemflag,'elemflag','CELL');
 exportMeshToXDA('basicExample.xda', g, '1.8.0')
