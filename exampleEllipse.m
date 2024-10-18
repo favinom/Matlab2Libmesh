@@ -14,12 +14,12 @@ x=[x1 x2(2:end) x3(2:end)];
 y=linspace(0,1,ney+1);
 m=Grid(x,y);
 
-m.elemflag(:,:)=1;
-[w]=find(xc-eps/2<m.Xc & m.Xc<xc+eps/2);
-m.elemflag(w)=2;
+m.i_elemflag(:,:)=1;
+[w]=find(xc-eps/2<m.i_Xc & m.i_Xc<xc+eps/2);
+m.i_elemflag(w)=2;
 
-X=m.X;
-Y=m.Y;
+X=m.i_X;
+Y=m.i_Y;
 
 a=eps/2;
 b=(1+eps)/2;
@@ -40,9 +40,8 @@ for j=1:size(Y,2)
     X(:,j)=x;
 end
 
-m.X=X;
+m.i_X=X;
 
 exportMeshToVTK('ellipse.vtk',m);
 appendSolutionToVtkFile('ellipse.vtk','ellipse.vtk',m.elemflag,'elemflag','CELL');
-
 exportMeshToXDA('ellipse.xda', m, '1.8.0')

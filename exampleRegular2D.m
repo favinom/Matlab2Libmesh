@@ -8,7 +8,7 @@ be8=be/8;
 
 fe=16;
 
-eps=1e-3;
+eps=1e-4;
 c=[0.5 0.625 0.75];
 
 l=[0 c(1)-eps/2 c(1)+eps/2 c(2)-eps/2 c(2)+eps/2 c(3)-eps/2 c(3)+eps/2];

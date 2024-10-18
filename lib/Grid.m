@@ -126,6 +126,12 @@ classdef Grid < MeshBase
             Yc=obj.i_Y;
             Zc=obj.i_Z;
         end
+        function out=ME(obj)
+            out=obj.i_ME;
+        end
+        function out=MV(obj)
+            out=obj.i_MV;
+        end
         % other classes
     end
 end
